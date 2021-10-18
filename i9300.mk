@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/i9300
+DEVICE_PATH := device/samsung/i9300
 COMMON_PATH := device/samsung/smdk4412-common
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -26,14 +26,14 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
-    $(LOCAL_PATH)/rootdir/fstab.smdk4x12:$(TARGET_COPY_OUT_RAMDISK)/fstab.smdk4x12 \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/init.target.usb.rc:root/init.target.usb.rc
+    $(DEVICE_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
+    $(DEVICE_PATH)/rootdir/fstab.smdk4x12:$(TARGET_COPY_OUT_RAMDISK)/fstab.smdk4x12 \
+    $(DEVICE_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(DEVICE_PATH)/rootdir/init.target.usb.rc:root/init.target.usb.rc
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/i9300
+    $(DEVICE_PATH)/configs/tiny_hw.xml:system/etc/sound/i9300
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -49,11 +49,11 @@ PRODUCT_PACKAGES += \
     libgps_symbols
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/vendor/etc/gps.xml
+    $(DEVICE_PATH)/configs/gps.xml:system/vendor/etc/gps.xml
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+    $(DEVICE_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
@@ -88,7 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.delay=3000
 
 TARGET_SYSTEM_PROP += \
-    $(LOCAL_PATH)/system.prop
+    device/samsung/i9300/i9300.prop
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -97,9 +97,9 @@ PRODUCT_COPY_FILES += \
 
 # UMS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ums_init.sh:system/bin/ums_init.sh
+    $(DEVICE_PATH)/configs/ums_init.sh:system/bin/ums_init.sh
 
 $(call inherit-product-if-exists, vendor/samsung/i9300/i9300-vendor.mk)
 
 # Vendor properties
--include $(LOCAL_PATH)/vendor_prop.mk
+-include $(DEVICE_PATH)/vendor_prop.mk
