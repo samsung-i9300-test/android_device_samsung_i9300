@@ -87,6 +87,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000
 
+TARGET_SYSTEM_PROP += \
+    $(LOCAL_PATH)/system.prop
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
